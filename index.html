@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="la">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canon 1256 - Analyse canonique interactive</title>
+  <style>
+    body { font-family: 'Georgia', serif; line-height: 1.6; padding: 1rem; }
+    .word { cursor: pointer; padding: 0.1rem 0.3rem; border-radius: 5px; }
+    .nominatif { background-color: #fff176; } /* jaune */
+    .accusatif { background-color: #81c784; } /* vert */
+    .genitif   { background-color: #64b5f6; } /* bleu */
+    .datif     { background-color: #ffb74d; } /* orange */
+    .ablatif   { background-color: #e57373; } /* rouge */
+    #tooltip {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #333;
+      color: white;
+      padding: 1rem;
+      font-size: 0.9rem;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Canon 1256 - Analyse canonique</h1>
+  <p>
+    <span class="nominatif word" data-info="Nominatif neutre singulier – sujet – 'la propriété'">Dominium</span>
+    <span class="genitif word" data-info="Génitif pluriel – complète 'dominium' – 'des biens'">bonorum</span>,
+    <span class="ablatif word" data-info="Ablatif – complément circonstanciel – 'sous la suprême autorité'">sub suprema auctoritate</span>
+    <span class="genitif word" data-info="Génitif singulier – complète 'auctoritate' – 'du Pontife romain'">Romani Pontificis</span>,
+    <span class="word" data-info="3e pers. sing. présent – verbe principal – 'appartient'">ad ... pertinet</span>
+    <span class="accusatif word" data-info="Accusatif – complément de 'ad' – 'à cette personne juridique'">eam personam iuridicam</span>,
+    <span class="nominatif word" data-info="Pronom relatif féminin singulier – sujet de la relative – 'qui'">quae</span>
+    <span class="accusatif word" data-info="Accusatif pluriel – COD de 'acquisiverit' – 'ces biens'">eadem bona</span>
+    <span class="ablatif word" data-info="Ablatif – complément d'instrument – 'légitimement'">legitime</span>
+    <span class="word" data-info="3e pers. sing. subj. parfait – verbe de la relative – 'aura acquis'">acquisiverit</span>.
+  </p>
+
+  <div id="tooltip"></div>
+
+  <script>
+    const words = document.querySelectorAll('.word');
+    const tooltip = document.getElementById('tooltip');
+
+    words.forEach(word => {
+      word.addEventListener('click', () => {
+        tooltip.innerText = word.getAttribute('data-info');
+        tooltip.style.display = 'block';
+      });
+    });
+  </script>
+</body>
+</html>
